@@ -1,4 +1,5 @@
 import 'package:coding_education_mobile/views/contains/style.dart';
+import 'package:coding_education_mobile/views/screens/details/details_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'views/screens/home/home_screen.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
               fontSize: 12, fontWeight: FontWeight.w500, color: kWhiteColor),
         ),
       ),
-      home: const HomeScreen(),
+      home: const DetailScreen(),
     );
   }
 }
