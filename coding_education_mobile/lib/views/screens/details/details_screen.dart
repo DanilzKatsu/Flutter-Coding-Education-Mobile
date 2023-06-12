@@ -7,6 +7,7 @@ import '../../components/big_title.dart';
 import '../../components/icon_button_nav_bar.dart';
 import '../../contains/style.dart';
 import 'components/expanded_text.dart';
+import 'components/line_dots.dart';
 
 var list_image = [
   "assets/images/pic5.png",
@@ -223,7 +224,7 @@ class MyButton extends StatelessWidget {
         bottom: 11,
       ),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(4)), color: color),
+          borderRadius: const BorderRadius.all(Radius.circular(4)), color: color),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -341,88 +342,3 @@ class EpisodeItem2 extends StatelessWidget {
   }
 }
 
-class LineWithDots extends StatelessWidget {
-  const LineWithDots({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: kDefaultSpacing,
-      child: Stack(
-        children: [
-          Container(
-            height: kDefaultSpacing,
-            width: kDefaultSpacing,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: kGreyColor,
-            ),
-          ),
-          Positioned(
-            child: Center(
-              child: Container(
-                height: kDefaultSpacing / 4,
-                decoration: const BoxDecoration(
-                  color: kGreyColor,
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            right: 0,
-            child: Container(
-              height: kDefaultSpacing,
-              width: kDefaultSpacing,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: kGreyColor,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class BottomNavigationBar extends StatelessWidget {
-  const BottomNavigationBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: kDefaultSpacing * 8, vertical: kDefaultSpacing * 4),
-      color: kSecondaryColor,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButtonNavBar(
-            icon: "assets/icons/home.svg",
-            press: () {},
-          ),
-          IconButtonNavBar(
-            icon: "assets/icons/folder.svg",
-            press: () {},
-          ),
-          IconButtonNavBar(
-            icon: "assets/icons/bookmark.svg",
-            press: () {},
-          ),
-          IconButtonNavBar(
-            icon: "assets/icons/diagram.svg",
-            press: () {},
-          ),
-          IconButtonNavBar(
-            icon: "assets/icons/user.svg",
-            press: () {},
-          )
-        ],
-      ),
-    );
-  }
-}

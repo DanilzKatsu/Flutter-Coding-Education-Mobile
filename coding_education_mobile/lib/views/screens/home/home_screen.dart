@@ -151,39 +151,89 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: kDefaultSpacing * 4),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: kDefaultSpacing * 8,
-                  vertical: kDefaultSpacing * 4),
-              color: kSecondaryColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButtonNavBar(
-                    icon: "assets/icons/home.svg",
-                    press: () {},
-                  ),
-                  IconButtonNavBar(
-                    icon: "assets/icons/folder.svg",
-                    press: () {},
-                  ),
-                  IconButtonNavBar(
-                    icon: "assets/icons/bookmark.svg",
-                    press: () {},
-                  ),
-                  IconButtonNavBar(
-                    icon: "assets/icons/diagram.svg",
-                    press: () {},
-                  ),
-                  IconButtonNavBar(
-                    icon: "assets/icons/user.svg",
-                    press: () {},
-                  )
-                ],
-              ),
-            ),
+            BottomBar(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BottomBar extends StatefulWidget {
+  const BottomBar({Key? key}) : super(key: key);
+
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int selectedIconIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+          horizontal: kDefaultSpacing * 8, vertical: kDefaultSpacing * 4),
+      color: kSecondaryColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButtonNavBar(
+            icon: "assets/icons/home.svg",
+            color: selectedIconIndex == 0 ? Colors.white : Colors.grey,
+            press: () {
+              setState(() {
+                selectedIconIndex = 0;
+              });
+            },
+            neonColor:
+                selectedIconIndex == 0 ? kWhiteColor : Colors.transparent,
+          ),
+          IconButtonNavBar(
+            icon: "assets/icons/folder.svg",
+            color: selectedIconIndex == 1 ? Colors.white : Colors.grey,
+            press: () {
+              setState(() {
+                selectedIconIndex = 1;
+              });
+            },
+            neonColor:
+                selectedIconIndex == 1 ? kWhiteColor : Colors.transparent,
+          ),
+          IconButtonNavBar(
+            neonColor:
+                selectedIconIndex == 2 ? kWhiteColor : Colors.transparent,
+            icon: "assets/icons/bookmark.svg",
+            color: selectedIconIndex == 2 ? Colors.white : Colors.grey,
+            press: () {
+              setState(() {
+                selectedIconIndex = 2;
+              });
+            },
+          ),
+          IconButtonNavBar(
+            neonColor:
+                selectedIconIndex == 3 ? kWhiteColor : Colors.transparent,
+            icon: "assets/icons/diagram.svg",
+            color: selectedIconIndex == 3 ? kWhiteColor : Colors.grey,
+            press: () {
+              setState(() {
+                selectedIconIndex = 3;
+              });
+            },
+          ),
+          IconButtonNavBar(
+            neonColor:
+                selectedIconIndex == 3 ? kWhiteColor : Colors.transparent,
+            icon: "assets/icons/user.svg",
+            color: selectedIconIndex == 4 ? Colors.white : Colors.grey,
+            press: () {
+              setState(() {
+                selectedIconIndex = 4;
+              });
+            },
+          )
+        ],
       ),
     );
   }

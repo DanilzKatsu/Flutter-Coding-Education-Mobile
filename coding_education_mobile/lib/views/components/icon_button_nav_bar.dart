@@ -8,15 +8,29 @@ class IconButtonNavBar extends StatelessWidget {
     super.key,
     required this.icon,
     required this.press,
+    required this.color, required this.neonColor,
   });
   final String icon;
   final VoidCallback press;
+  final Color color;
+  final Color neonColor;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: kDefaultSpacing * 7,
       height: kDefaultSpacing * 7,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: neonColor.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
       child: Stack(
         children: [
           MouseRegion(
@@ -29,8 +43,8 @@ class IconButtonNavBar extends StatelessWidget {
                   child: SvgPicture.asset(
                     icon,
                     height: kDefaultSpacing * 6,
-                    colorFilter: const ColorFilter.mode(
-                      kWhiteColor,
+                    colorFilter: ColorFilter.mode(
+                      color,
                       BlendMode.srcIn,
                     ),
                   )),
